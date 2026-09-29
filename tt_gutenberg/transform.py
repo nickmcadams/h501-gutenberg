@@ -1,17 +1,17 @@
 from tt_gutenberg.data import load_authors, load_metadata, load_languages
 
 DATA = {
-    "authors": load_authors,
-    "metadata": load_metadata,
-    "languages": load_languages,
+    "gutenberg_authors": load_authors,
+    "gutenberg_metadata": load_metadata,
+    "gutenberg_languages": load_languages,
 }
 
 
 def get_data():
     """Merge Gutenberg data and add translation counts."""
-    authors = DATA["authors"]()
-    metadata = DATA["metadata"]()
-    languages = DATA["languages"]()
+    authors = DATA["gutenberg_authors"]()
+    metadata = DATA["gutenberg_metadata"]()
+    languages = DATA["gutenberg_languages"]()
 
     merged = metadata.merge(
         languages,
