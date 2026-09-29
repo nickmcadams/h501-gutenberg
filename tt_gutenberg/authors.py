@@ -18,6 +18,6 @@ def list_authors(by_languages=False, alias=False):
     df = df.sort_values("translation_count", ascending=False)
     
     if alias:
-        return df["author_alias"].dropna().tolist()
+        return df["author_alias"].dropna().drop_duplicates().tolist()
 
     return df["gutenberg_author_id"].tolist()
