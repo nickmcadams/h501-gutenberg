@@ -14,8 +14,12 @@ def get_data():
         authors = load_authors()
         metadata = load_metadata()
 
-    return metadata.merge(
-        authors,
-        on="gutenberg_author_id",
-        suffixes=("_metadata", "_author")
+    df = metadata.merge(
+    authors,
+    on="gutenberg_author_id",
+    suffixes=("_metadata", "_author")
     )
+
+    df = df.rename(columns={"alias": "author_alias"})
+
+    return df
