@@ -20,6 +20,7 @@ def get_data():
     suffixes=("_metadata", "_author")
     )
 
-    df = df.rename(columns={"alias": "author_alias"})
-
+    df = df.rename(
+        columns={"alias": "author_alias"}
+    )
     return df
